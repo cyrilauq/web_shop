@@ -9,7 +9,6 @@ using System.Text.RegularExpressions;
 
 namespace CS_WebShop_Api.Controllers
 {
-    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
@@ -134,6 +133,7 @@ namespace CS_WebShop_Api.Controllers
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<string> Delete(string id)
         {
             Product result = _context.Products.Where(prod => prod.RefNum.CompareTo(id) == 0).FirstOrDefault();

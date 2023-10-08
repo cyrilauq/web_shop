@@ -89,6 +89,16 @@ namespace CS_WebShop_Api
              */
             app.UseAuthentication();
             app.UseAuthorization();
+            
+            // Seed database
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                DataInitializer.SeedRole(roleManager);
+                DataInitializer.Seed(userManager);
+            }
+
 
             app.MapControllers();
 

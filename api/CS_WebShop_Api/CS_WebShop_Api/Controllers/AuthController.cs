@@ -35,22 +35,9 @@ namespace CS_WebShop_Api.Controllers
             var user = await _userManager.FindByNameAsync(model.Username);
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                var userRoles = await _userManager.GetRolesAsync(user);
-
-                var authClaims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                };
-
-                foreach (var userRole in userRoles)
-                {
-                    authClaims.Add(new Claim(ClaimTypes.Role, userRole));
-                }
-
                 return Ok(new
                 {
-                    token = GenerateToken(user)
+                    token = await GenerateToken(user)
                 });
             }
             return Unauthorized();
@@ -111,19 +98,26 @@ namespace CS_WebShop_Api.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
-        private string GenerateToken(IdentityUser user)
+        private async Task<string> GenerateToken(IdentityUser user)
         {
-            List<Claim> claims = new List<Claim>
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            var authClaims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                };
+
+            foreach (var userRole in userRoles)
             {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Role, "Admin")
-            };
+                authClaims.Add(new Claim(ClaimTypes.Role, userRole));
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
                     _configuration.GetValue<string>("JWT:Secret")));
             var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
             var token = new JwtSecurityToken(
-                                   claims: claims,
+                                   claims: authClaims,
                                    expires: DateTime.UtcNow.AddDays(1),
                                    audience: _configuration[AuthConstants.AudiencePath],
                                    issuer: _configuration[AuthConstants.IssuerPath],
