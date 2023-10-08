@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace CS_WebShop_Api.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

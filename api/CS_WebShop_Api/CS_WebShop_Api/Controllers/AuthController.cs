@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -47,12 +48,9 @@ namespace CS_WebShop_Api.Controllers
                     authClaims.Add(new Claim(ClaimTypes.Role, userRole));
                 }
 
-                var token = GetToken(authClaims);
-
                 return Ok(new
                 {
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
+                    token = GenerateToken(user)
                 });
             }
             return Unauthorized();
@@ -113,6 +111,28 @@ namespace CS_WebShop_Api.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
+        private string GenerateToken(IdentityUser user)
+        {
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Role, "Admin")
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                    _configuration.GetValue<string>("JWT:Secret")));
+            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            var token = new JwtSecurityToken(
+                                   claims: claims,
+                                   expires: DateTime.UtcNow.AddDays(1),
+                                   audience: _configuration[AuthConstants.AudiencePath],
+                                   issuer: _configuration[AuthConstants.IssuerPath],
+                                   signingCredentials: cred
+            );
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            return jwt;
+        }
+
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
@@ -120,9 +140,9 @@ namespace CS_WebShop_Api.Controllers
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.Now.AddHours(3),
+                expires: DateTime.UtcNow.AddHours(2),
                 claims: authClaims,
-                signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
+                signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha512Signature)
                 );
 
             return token;

@@ -1,3 +1,4 @@
+using CS_WebShop_Api.Auth;
 using CS_WebShop_Api.Domains;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -5,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace CS_WebShop_Api
 {
@@ -24,45 +26,50 @@ namespace CS_WebShop_Api
                 .AddEntityFrameworkStores<WebShopContext>()
                 .AddDefaultTokenProviders();
 
-            // Add services to the container.
-            // On dit quel service d'authentification utiliser
-            builder.Services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddJwtBearer(x =>
+            builder.Services
+                .AddAuthentication(options =>
                 {
-                    x.SaveToken = true;
-                    x.RequireHttpsMetadata = false;
-                    // Will permit the validation of the token
-                    x.TokenValidationParameters = new TokenValidationParameters
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options => {
+                    options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        ValidIssuer = config["JWT:Issuer"],
-                        ValidAudience = config["JWT:ValidIssuer"],
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(config["JwtSettings:Key"])),
                         ValidateIssuer = true,
                         ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true
+                        ValidIssuer = config["JWT:ValidIssuer"],
+                        ValidAudience = config["JWT:ValidAudience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"]))
                     };
                 });
-
             builder.Services.AddAuthorization();
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers(/*x => x.Filters.Add<ApiKeyAuthFilter>()*/);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+
             builder.Services.AddSwaggerGen(c =>
             {
-                c.AddSecurityDefinition("piKey", new OpenApiSecurityScheme
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
-                    Description = "The API Key to access the API",
+                    Name = "Authorization",
                     Type = SecuritySchemeType.ApiKey,
-                    Name = "x-api-key",
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
                     In = ParameterLocation.Header,
-                    Scheme = "ApiKeyScheme"
+                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme {
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
                 });
             });
 

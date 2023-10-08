@@ -1,9 +1,9 @@
+using CS_WebShop_Api.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CS_WebShop_Api.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -21,6 +21,7 @@ namespace CS_WebShop_Api.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
+        [ServiceFilter(typeof(ApiKeyAuthFilter))]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
