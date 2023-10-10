@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CS_WebShop_Api.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -178,31 +178,31 @@ namespace CS_WebShop_Api.Migrations
                 columns: new[] { "RefNum", "Category", "Description", "Name", "Price" },
                 values: new object[,]
                 {
-                    { "0088746189296", "Grocery", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "Practical Metal Computer", 566.49000000000001 },
-                    { "0116938026286", "Clothing", "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", "Sleek Plastic Soap", 75.129999999999995 },
-                    { "0744957833112", "Tools", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "Awesome Concrete Pizza", 770.25999999999999 },
-                    { "1039522246152", "Clothing", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "Fantastic Steel Ball", 851.96000000000004 },
-                    { "1483070888973", "Grocery", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "Rustic Granite Soap", 904.33000000000004 },
-                    { "2287497197972", "Sports", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "Unbranded Concrete Fish", 519.08000000000004 },
-                    { "2428488293727", "Industrial", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "Sleek Concrete Cheese", 932.38 },
-                    { "2511926877976", "Games", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "Rustic Metal Chips", 897.15999999999997 },
-                    { "2772003753082", "Books", "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", "Rustic Soft Ball", 496.94 },
-                    { "3058761188977", "Movies", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "Gorgeous Metal Bike", 643.66999999999996 },
-                    { "3313082924759", "Kids", "The Football Is Good For Training And Recreational Purposes", "Awesome Rubber Pizza", 385.57999999999998 },
-                    { "3828056431589", "Beauty", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "Unbranded Granite Gloves", 20.91 },
-                    { "4723217738004", "Automotive", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "Sleek Rubber Chair", 932.98000000000002 },
-                    { "4803038395829", "Electronics", "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", "Tasty Frozen Car", 689.55999999999995 },
-                    { "5244882782769", "Books", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "Tasty Plastic Hat", 196.56999999999999 },
-                    { "5324194976985", "Shoes", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "Handmade Metal Fish", 728.66999999999996 },
-                    { "5521274792101", "Sports", "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", "Generic Cotton Cheese", 741.26999999999998 },
-                    { "6154746281118", "Movies", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "Small Frozen Bacon", 681.83000000000004 },
-                    { "6180481372262", "Sports", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "Tasty Rubber Table", 497.25999999999999 },
-                    { "6246936258182", "Toys", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "Gorgeous Rubber Salad", 175.72999999999999 },
-                    { "7743452821849", "Automotive", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "Handcrafted Concrete Hat", 791.78999999999996 },
-                    { "8336597716751", "Garden", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "Fantastic Cotton Fish", 721.88999999999999 },
-                    { "8606933978120", "Shoes", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "Incredible Soft Car", 710.63 },
-                    { "9720595889156", "Games", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "Unbranded Granite Computer", 761.53999999999996 },
-                    { "9959499195296", "Health", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "Intelligent Cotton Shirt", 756.05999999999995 }
+                    { "0244453832034", "Tools", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "Awesome Concrete Pizza", 578.25 },
+                    { "0277486548009", "Beauty", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "Rustic Granite Shirt", 25.629999999999999 },
+                    { "0907221671456", "Grocery", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "Fantastic Steel Chair", 57.869999999999997 },
+                    { "1757160587184", "Sports", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "Handcrafted Soft Computer", 742.96000000000004 },
+                    { "1874301458056", "Home", "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", "Handmade Metal Bacon", 75.530000000000001 },
+                    { "2145707149039", "Electronics", "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", "Ergonomic Wooden Table", 547.71000000000004 },
+                    { "2193020870987", "Clothing", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "Licensed Rubber Table", 548.88999999999999 },
+                    { "2439535423981", "Shoes", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "Sleek Plastic Ball", 535.83000000000004 },
+                    { "2469740900632", "Automotive", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "Gorgeous Soft Hat", 444.89999999999998 },
+                    { "2502048095331", "Books", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "Awesome Granite Salad", 261.11000000000001 },
+                    { "4147442334341", "Automotive", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "Intelligent Steel Shirt", 818.09000000000003 },
+                    { "5630942694491", "Home", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "Ergonomic Concrete Table", 274.36000000000001 },
+                    { "6786118997374", "Beauty", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "Awesome Frozen Tuna", 423.00999999999999 },
+                    { "6834333624749", "Industrial", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "Handmade Soft Salad", 749.32000000000005 },
+                    { "6860020098180", "Industrial", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "Incredible Soft Chicken", 723.63 },
+                    { "7423055721363", "Music", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "Handmade Wooden Soap", 315.56999999999999 },
+                    { "7615349156078", "Baby", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "Awesome Fresh Bacon", 838.78999999999996 },
+                    { "8066781022756", "Books", "The Football Is Good For Training And Recreational Purposes", "Gorgeous Plastic Mouse", 609.08000000000004 },
+                    { "8654165935008", "Clothing", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "Gorgeous Steel Hat", 560.80999999999995 },
+                    { "8657243530874", "Automotive", "The Football Is Good For Training And Recreational Purposes", "Unbranded Soft Mouse", 819.74000000000001 },
+                    { "9139151100350", "Kids", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "Fantastic Frozen Fish", 129.40000000000001 },
+                    { "9240273660261", "Clothing", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "Small Soft Mouse", 522.92999999999995 },
+                    { "9377340178906", "Home", "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", "Unbranded Wooden Shoes", 469.13 },
+                    { "9580588800724", "Clothing", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "Generic Rubber Car", 378.94999999999999 },
+                    { "9741646447682", "Automotive", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "Practical Wooden Chips", 172.97 }
                 });
 
             migrationBuilder.CreateIndex(

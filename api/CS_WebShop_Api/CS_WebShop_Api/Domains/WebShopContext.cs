@@ -1,4 +1,6 @@
 ﻿using Bogus;
+using CS_WebShop_Api.Domains.Orders;
+using CS_WebShop_Api.Domains.Carts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +10,11 @@ namespace CS_WebShop_Api.Domains
     public class WebShopContext: IdentityDbContext<IdentityUser>
     {
         public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<DeliverieAddresse> DeliverieAddresses { get; set; }
 
         public WebShopContext(DbContextOptions<WebShopContext> options) : base(options) { }
 

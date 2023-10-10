@@ -1,4 +1,5 @@
-﻿using CS_WebShop_Api.Domains;
+﻿using CS_WebShop_Api.Auth;
+using CS_WebShop_Api.Domains;
 using CS_WebShop_Api.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -133,7 +134,7 @@ namespace CS_WebShop_Api.Controllers
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<string> Delete(string id)
         {
             Product result = _context.Products.Where(prod => prod.RefNum.CompareTo(id) == 0).FirstOrDefault();

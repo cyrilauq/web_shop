@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CS_WebShop_Api.Migrations
 {
     [DbContext(typeof(WebShopContext))]
-    [Migration("20231008174443_Initial")]
-    partial class Initial
+    [Migration("20231009114141_Initial-Migration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,203 +52,203 @@ namespace CS_WebShop_Api.Migrations
                     b.HasData(
                         new
                         {
-                            RefNum = "2287497197972",
-                            Category = "Sports",
-                            Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-                            Name = "Unbranded Concrete Fish",
-                            Price = 519.08000000000004
-                        },
-                        new
-                        {
-                            RefNum = "3828056431589",
-                            Category = "Beauty",
-                            Description = "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-                            Name = "Unbranded Granite Gloves",
-                            Price = 20.91
-                        },
-                        new
-                        {
-                            RefNum = "5521274792101",
-                            Category = "Sports",
-                            Description = "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-                            Name = "Generic Cotton Cheese",
-                            Price = 741.26999999999998
-                        },
-                        new
-                        {
-                            RefNum = "0088746189296",
-                            Category = "Grocery",
-                            Description = "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-                            Name = "Practical Metal Computer",
-                            Price = 566.49000000000001
-                        },
-                        new
-                        {
-                            RefNum = "0744957833112",
-                            Category = "Tools",
-                            Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-                            Name = "Awesome Concrete Pizza",
-                            Price = 770.25999999999999
-                        },
-                        new
-                        {
-                            RefNum = "2511926877976",
-                            Category = "Games",
-                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-                            Name = "Rustic Metal Chips",
-                            Price = 897.15999999999997
-                        },
-                        new
-                        {
-                            RefNum = "8606933978120",
-                            Category = "Shoes",
-                            Description = "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-                            Name = "Incredible Soft Car",
-                            Price = 710.63
-                        },
-                        new
-                        {
-                            RefNum = "0116938026286",
+                            RefNum = "8654165935008",
                             Category = "Clothing",
-                            Description = "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-                            Name = "Sleek Plastic Soap",
-                            Price = 75.129999999999995
-                        },
-                        new
-                        {
-                            RefNum = "8336597716751",
-                            Category = "Garden",
-                            Description = "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-                            Name = "Fantastic Cotton Fish",
-                            Price = 721.88999999999999
-                        },
-                        new
-                        {
-                            RefNum = "1483070888973",
-                            Category = "Grocery",
-                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-                            Name = "Rustic Granite Soap",
-                            Price = 904.33000000000004
-                        },
-                        new
-                        {
-                            RefNum = "6180481372262",
-                            Category = "Sports",
-                            Description = "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-                            Name = "Tasty Rubber Table",
-                            Price = 497.25999999999999
-                        },
-                        new
-                        {
-                            RefNum = "5324194976985",
-                            Category = "Shoes",
-                            Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-                            Name = "Handmade Metal Fish",
-                            Price = 728.66999999999996
-                        },
-                        new
-                        {
-                            RefNum = "3313082924759",
-                            Category = "Kids",
-                            Description = "The Football Is Good For Training And Recreational Purposes",
-                            Name = "Awesome Rubber Pizza",
-                            Price = 385.57999999999998
-                        },
-                        new
-                        {
-                            RefNum = "6246936258182",
-                            Category = "Toys",
                             Description = "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-                            Name = "Gorgeous Rubber Salad",
-                            Price = 175.72999999999999
+                            Name = "Gorgeous Steel Hat",
+                            Price = 560.80999999999995
                         },
                         new
                         {
-                            RefNum = "2772003753082",
+                            RefNum = "8066781022756",
                             Category = "Books",
-                            Description = "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-                            Name = "Rustic Soft Ball",
-                            Price = 496.94
+                            Description = "The Football Is Good For Training And Recreational Purposes",
+                            Name = "Gorgeous Plastic Mouse",
+                            Price = 609.08000000000004
                         },
                         new
                         {
-                            RefNum = "6154746281118",
-                            Category = "Movies",
-                            Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-                            Name = "Small Frozen Bacon",
-                            Price = 681.83000000000004
-                        },
-                        new
-                        {
-                            RefNum = "5244882782769",
-                            Category = "Books",
-                            Description = "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-                            Name = "Tasty Plastic Hat",
-                            Price = 196.56999999999999
-                        },
-                        new
-                        {
-                            RefNum = "9959499195296",
-                            Category = "Health",
-                            Description = "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-                            Name = "Intelligent Cotton Shirt",
-                            Price = 756.05999999999995
-                        },
-                        new
-                        {
-                            RefNum = "1039522246152",
-                            Category = "Clothing",
-                            Description = "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-                            Name = "Fantastic Steel Ball",
-                            Price = 851.96000000000004
-                        },
-                        new
-                        {
-                            RefNum = "2428488293727",
+                            RefNum = "6860020098180",
                             Category = "Industrial",
                             Description = "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-                            Name = "Sleek Concrete Cheese",
-                            Price = 932.38
+                            Name = "Incredible Soft Chicken",
+                            Price = 723.63
                         },
                         new
                         {
-                            RefNum = "9720595889156",
-                            Category = "Games",
-                            Description = "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-                            Name = "Unbranded Granite Computer",
-                            Price = 761.53999999999996
-                        },
-                        new
-                        {
-                            RefNum = "4723217738004",
+                            RefNum = "9741646447682",
                             Category = "Automotive",
+                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                            Name = "Practical Wooden Chips",
+                            Price = 172.97
+                        },
+                        new
+                        {
+                            RefNum = "0277486548009",
+                            Category = "Beauty",
+                            Description = "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+                            Name = "Rustic Granite Shirt",
+                            Price = 25.629999999999999
+                        },
+                        new
+                        {
+                            RefNum = "9139151100350",
+                            Category = "Kids",
                             Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-                            Name = "Sleek Rubber Chair",
-                            Price = 932.98000000000002
+                            Name = "Fantastic Frozen Fish",
+                            Price = 129.40000000000001
                         },
                         new
                         {
-                            RefNum = "7743452821849",
+                            RefNum = "1757160587184",
+                            Category = "Sports",
+                            Description = "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                            Name = "Handcrafted Soft Computer",
+                            Price = 742.96000000000004
+                        },
+                        new
+                        {
+                            RefNum = "9580588800724",
+                            Category = "Clothing",
+                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                            Name = "Generic Rubber Car",
+                            Price = 378.94999999999999
+                        },
+                        new
+                        {
+                            RefNum = "0907221671456",
+                            Category = "Grocery",
+                            Description = "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+                            Name = "Fantastic Steel Chair",
+                            Price = 57.869999999999997
+                        },
+                        new
+                        {
+                            RefNum = "1874301458056",
+                            Category = "Home",
+                            Description = "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+                            Name = "Handmade Metal Bacon",
+                            Price = 75.530000000000001
+                        },
+                        new
+                        {
+                            RefNum = "9377340178906",
+                            Category = "Home",
+                            Description = "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+                            Name = "Unbranded Wooden Shoes",
+                            Price = 469.13
+                        },
+                        new
+                        {
+                            RefNum = "6786118997374",
+                            Category = "Beauty",
+                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                            Name = "Awesome Frozen Tuna",
+                            Price = 423.00999999999999
+                        },
+                        new
+                        {
+                            RefNum = "6834333624749",
+                            Category = "Industrial",
+                            Description = "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+                            Name = "Handmade Soft Salad",
+                            Price = 749.32000000000005
+                        },
+                        new
+                        {
+                            RefNum = "8657243530874",
+                            Category = "Automotive",
+                            Description = "The Football Is Good For Training And Recreational Purposes",
+                            Name = "Unbranded Soft Mouse",
+                            Price = 819.74000000000001
+                        },
+                        new
+                        {
+                            RefNum = "2145707149039",
+                            Category = "Electronics",
+                            Description = "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+                            Name = "Ergonomic Wooden Table",
+                            Price = 547.71000000000004
+                        },
+                        new
+                        {
+                            RefNum = "9240273660261",
+                            Category = "Clothing",
+                            Description = "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+                            Name = "Small Soft Mouse",
+                            Price = 522.92999999999995
+                        },
+                        new
+                        {
+                            RefNum = "4147442334341",
                             Category = "Automotive",
                             Description = "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-                            Name = "Handcrafted Concrete Hat",
-                            Price = 791.78999999999996
+                            Name = "Intelligent Steel Shirt",
+                            Price = 818.09000000000003
                         },
                         new
                         {
-                            RefNum = "4803038395829",
-                            Category = "Electronics",
-                            Description = "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-                            Name = "Tasty Frozen Car",
-                            Price = 689.55999999999995
+                            RefNum = "2193020870987",
+                            Category = "Clothing",
+                            Description = "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+                            Name = "Licensed Rubber Table",
+                            Price = 548.88999999999999
                         },
                         new
                         {
-                            RefNum = "3058761188977",
-                            Category = "Movies",
+                            RefNum = "5630942694491",
+                            Category = "Home",
+                            Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+                            Name = "Ergonomic Concrete Table",
+                            Price = 274.36000000000001
+                        },
+                        new
+                        {
+                            RefNum = "7423055721363",
+                            Category = "Music",
+                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                            Name = "Handmade Wooden Soap",
+                            Price = 315.56999999999999
+                        },
+                        new
+                        {
+                            RefNum = "2439535423981",
+                            Category = "Shoes",
+                            Description = "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                            Name = "Sleek Plastic Ball",
+                            Price = 535.83000000000004
+                        },
+                        new
+                        {
+                            RefNum = "2502048095331",
+                            Category = "Books",
                             Description = "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-                            Name = "Gorgeous Metal Bike",
-                            Price = 643.66999999999996
+                            Name = "Awesome Granite Salad",
+                            Price = 261.11000000000001
+                        },
+                        new
+                        {
+                            RefNum = "2469740900632",
+                            Category = "Automotive",
+                            Description = "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+                            Name = "Gorgeous Soft Hat",
+                            Price = 444.89999999999998
+                        },
+                        new
+                        {
+                            RefNum = "7615349156078",
+                            Category = "Baby",
+                            Description = "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+                            Name = "Awesome Fresh Bacon",
+                            Price = 838.78999999999996
+                        },
+                        new
+                        {
+                            RefNum = "0244453832034",
+                            Category = "Tools",
+                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                            Name = "Awesome Concrete Pizza",
+                            Price = 578.25
                         });
                 });
 

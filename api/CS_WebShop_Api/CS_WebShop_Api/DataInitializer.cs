@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using CS_WebShop_Api.Auth;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
 
@@ -8,27 +9,45 @@ namespace CS_WebShop_Api
     {
         public static void SeedRole(RoleManager<IdentityRole> roleManager)
         {
-            if (roleManager.RoleExistsAsync("Admin").Result == false)
+            if (roleManager.RoleExistsAsync(UserRoles.Admin).Result == false)
             {
-                IdentityRole admin = new IdentityRole() { Name = "Admin" };
-                var result = roleManager.CreateAsync(admin);
-                result.Wait();
+                IdentityRole admin = new IdentityRole() { Name = UserRoles.Admin };
+                var resultAdmin = roleManager.CreateAsync(admin);
+                resultAdmin.Wait();
+            }
+            if (roleManager.RoleExistsAsync(UserRoles.User).Result == false)
+            {
+                IdentityRole user = new IdentityRole() { Name = UserRoles.User };
+                var resultUser = roleManager.CreateAsync(user);
+                resultUser.Wait();
             }
         }
         public static void Seed(UserManager<IdentityUser> userManager)
         {
             if (userManager.Users.Count() != 0)
                 return;
-            var finalDispatcher = new IdentityUser
+            var productAdmin = new IdentityUser
             {
                 Email = "product@admin.com",
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = "product_admin"
             };
-            var resultDispatcher = userManager.CreateAsync(finalDispatcher, "Password123$").Result;
+            var resultDispatcher = userManager.CreateAsync(productAdmin, "Password123$").Result;
             if (resultDispatcher.Succeeded)
             {
-                var resultDispatcher2 = userManager.AddToRoleAsync(finalDispatcher, "Admin").Result;
+                var resultAddAdminToProd = userManager.AddToRoleAsync(productAdmin, UserRoles.Admin).Result;
+                var resultAddUserToProd = userManager.AddToRoleAsync(productAdmin, UserRoles.User).Result;
+            }
+            var user = new IdentityUser
+            {
+                Email = "touka_ki@example.com",
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = "touka_ki"
+            };
+            var resultUser = userManager.CreateAsync(user, "Password123@").Result;
+            if (resultUser.Succeeded)
+            {
+                var resultAddUserToProd = userManager.AddToRoleAsync(user, UserRoles.User).Result;
             }
 
         }
