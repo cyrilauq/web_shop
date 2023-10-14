@@ -37,7 +37,9 @@ namespace CS_WebShop_Api.Controllers
             {
                 return Ok(new
                 {
-                    token = await GenerateToken(user)
+                    token = await GenerateToken(user),
+                    uid = user.Id,
+                    mail = user.Email
                 });
             }
             return Unauthorized();
@@ -95,46 +97,40 @@ namespace CS_WebShop_Api.Controllers
 
         private async Task<string> GenerateToken(IdentityUser user)
         {
+            // Get all user's roles
             var userRoles = await _userManager.GetRolesAsync(user);
 
+            // Set the claims of the user
+            // like its name, uid and an id for the token
             var authClaims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim("uid", user.Id),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
 
+            // Add as claims the user's role
             foreach (var userRole in userRoles)
             {
                 authClaims.Add(new Claim(ClaimTypes.Role, userRole));
             }
 
+            // Create a key encryption
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
                     _configuration.GetValue<string>("JWT:Secret")));
+            // Create signing credentials with the generated key
             var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            // Create a token (JwtSecurityToken)
             var token = new JwtSecurityToken(
-                                   claims: authClaims,
-                                   expires: DateTime.UtcNow.AddDays(1),
-                                   audience: _configuration[AuthConstants.AudiencePath],
-                                   issuer: _configuration[AuthConstants.IssuerPath],
-                                   signingCredentials: cred
+                claims: authClaims, // Set the user's claims to the token's claims 
+                expires: DateTime.UtcNow.AddHours(1), // Add an expiring date
+                audience: _configuration[AuthConstants.AudiencePath], // set the audience
+                issuer: _configuration[AuthConstants.IssuerPath], // set the issuer
+                signingCredentials: cred // set the signingcredentials
             );
+            // Create a string as a token
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
             return jwt;
-        }
-
-        private JwtSecurityToken GetToken(List<Claim> authClaims)
-        {
-            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
-
-            var token = new JwtSecurityToken(
-                issuer: _configuration["JWT:ValidIssuer"],
-                audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.UtcNow.AddHours(2),
-                claims: authClaims,
-                signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha512Signature)
-                );
-
-            return token;
         }
     }
 }
