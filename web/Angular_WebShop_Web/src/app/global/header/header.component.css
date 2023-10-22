@@ -6,4 +6,5 @@ header {
 header div {
     display: flex;
     flex-direction: row;
+    text-align: center;
 }

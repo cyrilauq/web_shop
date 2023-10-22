@@ -9,6 +9,7 @@ import { NewsWrapperComponent } from './components/news/news-wrapper/news-wrappe
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { AuthMenuComponent } from './global/auth-menu/auth-menu.component';
 import { ActionMenuComponent } from './global/action-menu/action-menu.component';
+import { NavigationMenuComponent } from './global/navigation-menu/navigation-menu.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ActionMenuComponent } from './global/action-menu/action-menu.component'
     NewsWrapperComponent,
     NewsItemComponent,
     AuthMenuComponent,
-    ActionMenuComponent
+    ActionMenuComponent,
+    NavigationMenuComponent
   ],
   imports: [
     BrowserModule
