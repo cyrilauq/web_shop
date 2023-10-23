@@ -1,11 +1,12 @@
 <header>
     <div>
-        <span>Menu</span>
+        <span (click)="onDisplayMenu()">Menu</span>
+        <app-navigation-menu *ngIf="displayMenu" />
         <h1>WebShop</h1>
         <app-action-menu></app-action-menu>
     </div>
     <div>
-        <input type="text" id="search_input" />
+        <input type="text" id="search_input" [(ngModel)]="searchInput" />
         <button id="search_btn" (click)="onSearch()">Search</button>
     </div>
 </header>

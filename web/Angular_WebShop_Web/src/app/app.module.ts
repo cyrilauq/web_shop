@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -9,7 +10,8 @@ import { NewsWrapperComponent } from './components/news/news-wrapper/news-wrappe
 import { NewsItemComponent } from './components/news/news-item/news-item.component';
 import { AuthMenuComponent } from './global/auth-menu/auth-menu.component';
 import { ActionMenuComponent } from './global/action-menu/action-menu.component';
-import { NavigationMenuComponent } from './global/navigation-menu/navigation-menu.component';
+import { NavigationMenuComponent } from './global/navigation/navigation-menu/navigation-menu.component';
+import { NavigationItemComponent } from './global/navigation/navigation-item/navigation-item.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,12 @@ import { NavigationMenuComponent } from './global/navigation-menu/navigation-men
     NewsItemComponent,
     AuthMenuComponent,
     ActionMenuComponent,
-    NavigationMenuComponent
+    NavigationMenuComponent,
+    NavigationItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

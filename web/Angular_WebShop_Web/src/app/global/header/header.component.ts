@@ -6,7 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+    searchInput: String = ""
+    displayMenu: Boolean = false
+
+    onDisplayMenu() {
+        this.displayMenu = !this.displayMenu
+    }
     onSearch() {
+        console.log(this.searchInput);
+        
         throw new Error('Method not implemented.');
     }
 }
