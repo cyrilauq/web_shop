@@ -1,8 +1,9 @@
 ul {
     list-style-type: none;
     display: flex;
+    margin: 0;
 }
 
 ul li {
-    margin-inline: .5rem;
+    margin-inline: .25rem;
 }

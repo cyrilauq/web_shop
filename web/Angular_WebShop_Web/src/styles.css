@@ -2,3 +2,11 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.form_icon {
+    width: 1.2rem;
+}
+
+.action_icon {
+    width: 2.5rem;
+}
