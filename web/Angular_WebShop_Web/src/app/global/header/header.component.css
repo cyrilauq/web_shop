@@ -1,8 +1,14 @@
+:scope {
+    --primary-bg-color: antiquewhite;
+}
+
 header {
+    --primary-bg-color: antiquewhite;
     display: flex;
     flex-direction: column;
-    background-color: antiquewhite;
+    background-color: var(--primary-bg-color);
     padding: .5rem;
+    height: 5rem;
 }
 
 header div {
@@ -30,4 +36,13 @@ app-action-menu {
 
 h1 {
     margin: 0;
+}
+
+app-navigation-menu {
+    border-top: .1rem solid black;
+    left: 0;
+    padding: 2rem;;
+    background-color: var(--primary-bg-color);
+    top: 6rem;
+    position: fixed;
 }
