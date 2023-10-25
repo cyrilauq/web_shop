@@ -41,7 +41,8 @@ h1 {
 app-navigation-menu {
     border-top: .1rem solid black;
     left: 0;
-    padding: 2rem;;
+    padding-inline: 1.5rem;
+    padding-block: .5rem;
     background-color: var(--primary-bg-color);
     top: 6rem;
     position: fixed;

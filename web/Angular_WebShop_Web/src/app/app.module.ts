@@ -12,7 +12,6 @@ import { AuthMenuComponent } from './global/auth-menu/auth-menu.component';
 import { ActionMenuComponent } from './global/action-menu/action-menu.component';
 import { NavigationMenuComponent } from './global/navigation/navigation-menu/navigation-menu.component';
 import { NavigationItemComponent } from './global/navigation/navigation-item/navigation-item.component';
-
 @NgModule({
   declarations: [
     AppComponent,
