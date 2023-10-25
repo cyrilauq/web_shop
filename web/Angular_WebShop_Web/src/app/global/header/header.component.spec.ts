@@ -6,7 +6,8 @@ import { ActionMenuComponent } from '../action-menu/action-menu.component';
 import { NavigationMenuComponent } from '../navigation/navigation-menu/navigation-menu.component';
 import { NavigationItemComponent } from '../navigation/navigation-item/navigation-item.component';
 import { ShowDirective } from 'src/app/directives/show/show.directive';
-import { NgModel } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR, NgModel } from '@angular/forms';
+import { forwardRef } from '@angular/core';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -22,6 +23,10 @@ describe('HeaderComponent', () => {
             NavigationItemComponent,
             ShowDirective,
             NgModel
+        ],
+        // Put this import when testing component with ngmodel directive 
+        imports: [
+            FormsModule
         ]
     }).compileComponents();
     fixture = TestBed.createComponent(HeaderComponent);
