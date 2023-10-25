@@ -6,6 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+    @Input()
+    appTitle: String = ""
+
     searchInput: String = ""
     displayMenu: boolean = false
     iconPath: String = "assets/menu_icon.svg"

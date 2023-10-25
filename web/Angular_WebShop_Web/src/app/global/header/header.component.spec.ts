@@ -7,7 +7,7 @@ import { NavigationMenuComponent } from '../navigation/navigation-menu/navigatio
 import { NavigationItemComponent } from '../navigation/navigation-item/navigation-item.component';
 import { ShowDirective } from 'src/app/directives/show/show.directive';
 import { FormsModule, NG_VALUE_ACCESSOR, NgModel } from '@angular/forms';
-import { DebugElement, forwardRef } from '@angular/core';
+import { DebugElement, Input, forwardRef } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 describe('HeaderComponent', () => {
@@ -32,6 +32,7 @@ describe('HeaderComponent', () => {
         }).compileComponents();
         fixture = TestBed.createComponent(HeaderComponent);
         component = fixture.componentInstance;
+        component.appTitle = "TestApp"
         fixture.detectChanges();
     });
 
@@ -40,10 +41,8 @@ describe('HeaderComponent', () => {
     });
 
     it('should render title', () => {
-        const fixture = TestBed.createComponent(HeaderComponent);
-        fixture.detectChanges();
         const compiled = fixture.nativeElement as HTMLElement;
-        expect(compiled.querySelector('h1')?.textContent).toContain('WebShop');
+        expect(compiled.querySelector('h1')?.textContent).toContain('TestApp');
     });
 
     
