@@ -12,6 +12,13 @@ export class HeaderComponent {
     onDisplayMenu() {
         this.displayMenu = !this.displayMenu
     }
+
+    onSearchClicked() {
+        console.log(this.searchInput);
+        
+        throw new Error('Method not implemented.');
+    }
+
     onSearch() {
         console.log(this.searchInput);
         

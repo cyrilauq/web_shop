@@ -9,7 +9,7 @@
         <app-action-menu></app-action-menu>
     </div>
     <div>
-        <input type="text" id="search_input" [(ngModel)]="searchInput" />
-        <button id="search_btn" (click)="onSearch()"><img src="assets/search_icon.svg" class="form_icon"></button>
+        <input type="text" id="search_input" [(ngModel)]="searchInput" (keyup.enter)="onSearchClicked()" (keyup)="onSearch()"/>
+        <button id="search_btn" (click)="onSearchClicked()"><img src="assets/search_icon.svg" class="form_icon"></button>
     </div>
 </header>
