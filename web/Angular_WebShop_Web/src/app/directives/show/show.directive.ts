@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 /**
  * Definition of a directive that will display or not a value based on a given condition.
