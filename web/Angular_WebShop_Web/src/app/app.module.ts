@@ -12,6 +12,8 @@ import { AuthMenuComponent } from './global/auth-menu/auth-menu.component';
 import { ActionMenuComponent } from './global/action-menu/action-menu.component';
 import { NavigationMenuComponent } from './global/navigation/navigation-menu/navigation-menu.component';
 import { NavigationItemComponent } from './global/navigation/navigation-item/navigation-item.component';
+import { ShowDirective } from './directives/show/show.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { NavigationItemComponent } from './global/navigation/navigation-item/nav
     AuthMenuComponent,
     ActionMenuComponent,
     NavigationMenuComponent,
-    NavigationItemComponent
+    NavigationItemComponent,
+    ShowDirective
   ],
   imports: [
     BrowserModule,

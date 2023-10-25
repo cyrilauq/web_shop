@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
     searchInput: String = ""
-    displayMenu: Boolean = false
+    displayMenu: boolean = false
     iconPath: String = "assets/menu_icon.svg"
 
     onDisplayMenu() {

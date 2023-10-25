@@ -3,7 +3,7 @@
         <span (click)="onDisplayMenu()">
             <img [src]="iconPath" class="action_icon">
         </span>
-        <app-navigation-menu *ngIf="displayMenu" />
+        <app-navigation-menu [show]="displayMenu" />
         <h1>WebShop</h1>
         <app-action-menu></app-action-menu>
     </div>
