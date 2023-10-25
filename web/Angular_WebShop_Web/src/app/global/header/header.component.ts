@@ -8,9 +8,11 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
     searchInput: String = ""
     displayMenu: Boolean = false
+    iconPath: String = "assets/menu_icon.svg"
 
     onDisplayMenu() {
         this.displayMenu = !this.displayMenu
+        this.iconPath = "assets/" + (this.displayMenu ? "close_icon" : "menu_icon" ) + ".svg"
     }
 
     onSearchClicked() {

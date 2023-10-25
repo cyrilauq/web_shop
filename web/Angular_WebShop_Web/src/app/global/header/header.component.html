@@ -1,8 +1,7 @@
 <header>
     <div>
         <span (click)="onDisplayMenu()">
-            <img *ngIf="!displayMenu" src="assets/menu_icon.svg" class="action_icon">
-            <img *ngIf="displayMenu" src="assets/close_icon.svg" class="action_icon">
+            <img [src]="iconPath" class="action_icon">
         </span>
         <app-navigation-menu *ngIf="displayMenu" />
         <h1>WebShop</h1>
