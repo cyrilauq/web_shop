@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from 'src/modules/models/product';
 
 @Component({
   selector: 'app-product-list',
@@ -6,18 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-    products = [
-        {
-            name: "One",
-            price: 1.0
-        },
-        {
-            name: "Two",
-            price: 2.0
-        }, 
-        {
-            name: "Three",
-            price: 3.0
-        }
-    ];
+    @Input() productList: Product[] = [];
 }

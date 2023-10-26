@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent {
-    @Input() name = "";
+    @Input() name: String = "";
+    @Input() description: String = "";
     @Input() price = 0.0;
 }
