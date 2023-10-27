@@ -9,4 +9,8 @@ export class ProductItemComponent {
     @Input() name: String = "";
     @Input() description: String = "";
     @Input() price = 0.0;
+
+    addToCart() {
+        throw new Error('Method not implemented.');
+    }
 }

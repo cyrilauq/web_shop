@@ -1,0 +1,9 @@
+app-product-item {
+    padding: 1.5rem;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

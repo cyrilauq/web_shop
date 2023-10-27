@@ -12,17 +12,17 @@ export class AppComponent {
         new Product(
             "One",
             1.0,
-            ""
+            "Description"
         ),
         new Product(
             "Two",
             2.0,
-            ""
+            "Description"
         ),
         new Product(
             "Three",
             3.0,
-            ""
+            "Description"
         )
     ];
 }
