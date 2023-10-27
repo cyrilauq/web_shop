@@ -14,6 +14,9 @@ import { NavigationMenuComponent } from './global/navigation/navigation-menu/nav
 import { NavigationItemComponent } from './global/navigation/navigation-item/navigation-item.component';
 import { ShowDirective } from './directives/show/show.directive';
 import { Product } from 'src/modules/models/product';
+import { AppRoutingModule } from './app-routing.module';
+import { AboutComponent } from './views/about/about.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +30,14 @@ import { Product } from 'src/modules/models/product';
     ActionMenuComponent,
     NavigationMenuComponent,
     NavigationItemComponent,
-    ShowDirective
+    ShowDirective,
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
